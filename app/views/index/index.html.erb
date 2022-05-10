@@ -1,1 +1,7 @@
 <h1>Hello</h1>
+<%begin %>
+<%  @post.each do |post|  %>
+<p><%= post.id %></p>
+<% rescue => e%>
+    <p>Failed</p>
+<% end %>
