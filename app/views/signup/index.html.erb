@@ -1,0 +1,16 @@
+<h1>Signup Page</h1>
+
+<%= form_tag posts_path do %>
+  <label>User name:</label><br>
+  <%= text_field_tag :'user[userName]' %><br>
+
+  <label>Email:</label><br>
+  <%= text_field_tag :'user[email]' %><br>
+  
+  <label>Password:</label><br>
+  <%= text_field_tag :'user[password]' %><br>
+  
+
+  <%= submit_tag "Create Account" %>
+<% end %>
+<%= button_to "Home", home_index_path, method: :get %>
