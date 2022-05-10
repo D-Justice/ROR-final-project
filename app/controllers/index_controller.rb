@@ -1,5 +1,8 @@
 class IndexController < ApplicationController
-    def all
-        @post = Post.all
+    def index
+    end
+
+    def _toPosts
+        redirect_to '/posts'
     end
 end

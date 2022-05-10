@@ -5,6 +5,10 @@ class PostsController < ApplicationController
         @post.title = params[:post][:title]
         @post.content = params[:post][:content]
         @post.save
-        redirect_to "/home"
+        redirect_to "/posts"
+    end
+
+    def index
+        @posts = Post.all
     end
 end

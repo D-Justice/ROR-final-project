@@ -1,0 +1,10 @@
+<h1>Hello</h1>
+<%begin %>
+<%  @posts.each do |post|  %>
+<p>test<%= post.id %></p>
+<% end %>
+
+<% rescue => e%>
+    <p>Failed </p>
+    
+<% end %>
