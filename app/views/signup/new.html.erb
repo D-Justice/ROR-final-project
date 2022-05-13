@@ -1,8 +1,14 @@
 <h1>Signup Page</h1>
 
-<%= form_tag posts_path do %>
+<%= form_tag signup_index_path do %>
   <label>User name:</label><br>
   <%= text_field_tag :'user[userName]' %><br>
+  
+  <label>First name:</label><br>
+  <%= text_field_tag :'user[firstName]' %><br>
+
+  <label>Last name:</label><br>
+  <%= text_field_tag :'user[lastName]' %><br>
 
   <label>Email:</label><br>
   <%= text_field_tag :'user[email]' %><br>
