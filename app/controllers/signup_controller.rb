@@ -11,6 +11,7 @@ class SignupController < ApplicationController
         @newUser.email = params[:user][:email]
         @newUser.password = params[:user][:password]
         @newUser.save
+        flash[:notice] = "User created."
         redirect_to home_index_path
     end
 end

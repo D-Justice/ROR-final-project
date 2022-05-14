@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :home, only: [:index]
   resources :posts, only: [:index, :new, :create]
-  resources :login, only: [:index]
+  get 'login', to: "sessions#new"
+  post 'login', to: "sessions#create"
+  delete 'logout', to: "sessions#delete"
   resources :signup, only: [:new, :create]
   
 end
