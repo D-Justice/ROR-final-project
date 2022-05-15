@@ -1,4 +1,4 @@
-
+ <%= csrf_meta_tags %>
 <%= form_with(scope: :session, url: login_path) do |f| %>
  
 <div class="form-group">
@@ -14,5 +14,11 @@
 <div class="form-group">
   <%= f.submit "Log in", class: "btn btn-primary" %>
 </div>
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
  <% end %>
+<%= form_tag ({controller: 'sessions', action: 'delete', method: 'post'}) do %>
+  <input type=submit value='logout'>
+<% end %>
+
+
 <%= button_to "Home", home_index_path, method: :get %>

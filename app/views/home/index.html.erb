@@ -3,7 +3,9 @@
 <%= button_to "Signup", "signup/new", method: :get %>
 
 <% if @logoutButton %>
-<%= button_to "Logout", "logout", method: :delete %>
+<%= form_tag ({controller: 'sessions', action: 'delete', method: 'post'}) do %>
+  <input type=submit value='logout'>
+<% end %>
 <% else %>
 <%= button_to "Login", login_path, method: :get %>
 <% end %>
