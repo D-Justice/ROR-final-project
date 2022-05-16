@@ -1,0 +1,10 @@
+<h1>User page</h1>
+<%= @user.posts.count %>
+<%begin %>
+<%  @user.posts.each  do |post|  %>
+<p>test <%= post.content %></p>
+<% end %>
+<% rescue => e%>
+    <p>Failed </p>
+    
+<% end %>

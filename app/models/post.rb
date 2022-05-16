@@ -1,6 +1,4 @@
 class Post < ActiveRecord::Base
-
-    def all
-        @post = Post.all
-    end
+    belongs_to :user, foreign_key: :id
+    
 end
