@@ -6,7 +6,6 @@
 
 <%  @user.posts.each  do |post|  %>
 <p>test <%= post.content %></p> 
-<%= form_tag ({controller: 'user', action: 'delete', method: 'post', id: post.id}) do %>
-  <input type=submit value='X'>
-<% end %>
+<%= button_to 'delete', {'action': 'delete', id: post.id}, :onclick => "return confirm('Warning: This will delete this post permanently. Are you sure?')" %>
+
 <% end %>
