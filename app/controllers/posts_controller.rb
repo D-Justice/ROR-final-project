@@ -6,7 +6,7 @@ class PostsController < ApplicationController
         @post.content = params[:post][:content]
         @post.user_id = session[:user_id]
         @post.save
-        redirect_to "/posts"
+        redirect_to user_path(@post.id)
     end
 
     def index
