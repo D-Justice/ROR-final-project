@@ -1,12 +1,12 @@
 <h1>User page</h1>
 <%= button_to "Create", "posts/new", method: :get %>
+<%= button_to "Back", "/home", method: :get %>
+
 <%= @user.posts.count %>
 
-<%begin %>
 <%  @user.posts.each  do |post|  %>
-<p>test <%= post.content %></p>
+<p>test <%= post.content %></p> 
+<%= form_tag ({controller: 'user', action: 'delete', method: 'post', id: post.id}) do %>
+  <input type=submit value='X'>
 <% end %>
-<% rescue => e%>
-    <p>Failed </p>
-    
 <% end %>

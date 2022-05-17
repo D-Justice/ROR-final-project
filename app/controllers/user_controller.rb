@@ -5,4 +5,8 @@ class UserController < ApplicationController
     def show
         @showPost = Post.find(params[:id])
     end
+    def delete
+        Post.delete(params[:id])
+        redirect_to "/user"
+    end
 end

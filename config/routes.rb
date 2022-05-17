@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   post '/logout', to: "sessions#delete"
   resources :signup, only: [:new, :create]
   resources :user, only: [:index, :show]
+  post '/user/:id', to: "user#delete"
   
 end
