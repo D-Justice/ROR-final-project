@@ -1,3 +1,21 @@
-h1 {
+.user-profile {
+    display: inline-block;
+    position: relative;
+    float: left;
+    background-color: darkgrey;
+    width: 25%;
+    height: 100vh;
 }
-
+.user-profile h1 {
+    margin-left: 10%;
+}
+.user-posts {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    margin-left: 3%;
+}
+.user-btn {
+    float: left;
+    margin-left: 1%;
+}

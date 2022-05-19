@@ -1,19 +1,21 @@
 <%= stylesheet_link_tag "general" %>
+<%= stylesheet_link_tag "user" %>
 <%= render TaskComponent.new(nav: isLoggedIn) %>
 
 <%= stylesheet_link_tag "user" %>
-
-    <div class='center-content'>
+    <div class='user-profile'>
         <h1><%= @user.userName %>'s page</h1>
-        <%= button_to "Create", "posts/new", method: :get, class: 'btn' %>
-        <%= button_to "Back", "/home", method: :get, class: 'btn' %>
+</div>
 
-
+    <div class='user-posts'>
+        <h1>My Posts</h1>
+        <%= button_to "Create", "posts/new", method: :get, class: 'btn user-btn create-btn' %>
+        <%= button_to "Back", "/home", method: :get, class: 'btn user-btn back-btn' %>
         <%  @user.posts.each  do |post|  %>
             <div style="display: inline-block">
                 <h1 style="display: inline-block"><%= post.title %></h1>
                 <p style="display: inline-block"><%= post.content %></p> 
-                <%= button_to 'delete', {'action': 'delete', id: post.id}, :onclick => "return confirm('Warning: This will delete this post permanently. Are you sure?')", class: 'btn' %>
+                <%= button_to 'Delete', {'action': 'delete', id: post.id}, :onclick => "return confirm('Warning: This will delete this post permanently. Are you sure?')", class: 'btn delete-btn' %>
             </div>
         <% end %>
 </div>
