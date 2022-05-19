@@ -1,0 +1,69 @@
+html {
+    background: linear-gradient(88deg, grey, white , grey);
+    background-size: 400%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    animation: gradient-smooth 60s ease infinite;
+
+}
+.center-content {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+.nav {
+    display: inline-block;
+    
+}
+.btn {
+    font-size: 14px;
+    padding: 6px 12px;
+    margin-bottom: 0;
+
+    display: inline-block;
+    position: relative;
+    float: right;
+    margin-right: 1%;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+}
+.btn:focus,
+.btn:active:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+.btn:hover,
+.btn:focus {
+    color: #333;
+    text-decoration: none;
+}
+.btn:active {
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+.logout {
+    background-color: red;
+}
+.login {
+    background-color: blue;
+}
+@keyframes gradient-smooth {
+    0%{background-position:77% 0%}
+    50%{background-position:24% 100%}
+    100%{background-position:77% 0%}
+    
+}

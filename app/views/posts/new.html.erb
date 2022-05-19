@@ -1,3 +1,7 @@
+<%= stylesheet_link_tag "general" %>
+<%= render TaskComponent.new(nav: isLoggedIn) %>
+
+<div class='center-content'>
 <%= form_tag posts_path do |post|%>
   <label>Post title:</label><br>
   <%= text_field_tag :'post[title]' %><br>
@@ -5,8 +9,8 @@
   <label>Post description:</label><br>
   <%= text_area_tag :'post[content]' %><br>
 
-  <%= submit_tag "Submit Post" %>
+  <%= submit_tag "Submit Post", class: 'btn' %>
 
 <% end %>
-  <%= button_to "Back", "/user", method: :get %>
-
+  <%= button_to "Back", "/user", method: :get, class: 'btn' %>
+</div>
