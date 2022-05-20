@@ -11,6 +11,5 @@ class PostsController < ApplicationController
 
     def index
         @posts = Post.all
-        @comment = Comment.new(comment: 'This is a comment')
     end
 end

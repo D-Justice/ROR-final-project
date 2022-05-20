@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :home, only: [:index]
   resources :posts, only: [:index, :new, :create]
+  resources :comments, only: [:new, :create]
+
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   post '/logout', to: "sessions#delete"

@@ -4,9 +4,15 @@
 <div class='center-content'>
 <%begin %>
 <%  @posts.each do |post|  %>
-<p>test<%= post.content %></p>
+<p><%= post.title %><%= post.content %></p>
+<%= form_tag comments_path do |comment|%>
+  <label>Comment:</label><br>
+  <%= text_field_tag :'comment[comment]' %><br>
+  <%= hidden_field_tag :'comment[post]' => {value: post}%>
+  <%= submit_tag "Post Comment", class: 'btn submit-btn' %>
+
 <% end %>
-<h1><%= @comment.comment %> </h1>
+<% end %>
 <% rescue => e%>
     <p>Failed </p>
     
