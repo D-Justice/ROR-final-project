@@ -12,4 +12,8 @@ class PostsController < ApplicationController
     def index
         @posts = Post.all
     end
+    def show
+        @showPost = Post.find(params[:id])
+        @pageId = params[:id]
+    end
 end

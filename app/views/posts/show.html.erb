@@ -1,0 +1,15 @@
+<%= render TaskComponent.new(nav: isLoggedIn) %>
+<div class='center-content'>
+<h1><%= @showPost.title %></h1>
+<p><%= @showPost.content %></p>
+<p>Page <%= params[:id]%></p>
+<%= form_tag comments_path do |comment|%>
+  <label>Comment:</label><br>
+  <p><%= @pageId %></p>
+  <%= text_field_tag :'comment[comment]' %><br>
+  <%= hidden_field_tag :'comment[test]', @pageId%>
+  <%= submit_tag "Post Comment", class: 'btn submit-btn' %>
+
+<% end %>
+<%= button_to "Back", "/posts", method: :get, class: 'btn' %>
+</div>
