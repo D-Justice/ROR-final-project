@@ -78,6 +78,37 @@ html {
 .login {
     background-color: blue;
 }
+.post-box {
+    background-color: rgb(119, 119, 119);
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 5%; 
+}
+.post-box h3 {
+    text-align: left;
+    padding: 10px 0 10px 10px;
+}
+.post-box p {
+    margin: -20px 10px 10px 10px;
+    margin: 0 auto;
+
+    
+    width: 90%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+
+    @supports (-webkit-line-clamp: 3) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: initial;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+}
 @keyframes gradient-smooth {
     0%{background-position:77% 0%}
     50%{background-position:24% 100%}

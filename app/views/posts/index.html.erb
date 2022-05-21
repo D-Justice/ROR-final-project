@@ -4,14 +4,12 @@
 <div class='center-content'>
 <%begin %>
 <%  @posts.each do |post|  %>
-<p><%= post.title %><%= post.content %></p>
-<%= form_tag comments_path do |comment|%>
-  <label>Comment:</label><br>
-  <%= text_field_tag :'comment[comment]' %><br>
-  <%= hidden_field_tag :'comment[post]' => {value: post}%>
-  <%= submit_tag "Post Comment", class: 'btn submit-btn' %>
+<div class='post-box'>
+<h3><%= post.title %></h3>
+<p><%= post.content %></p>
+<%= button_to "See Full Post", post_path(post.id), method: :get, class: 'btn' %>
+</div>
 
-<% end %>
 <% end %>
 <% rescue => e%>
     <p>Failed </p>

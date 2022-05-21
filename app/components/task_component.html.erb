@@ -7,7 +7,7 @@
 <%= form_tag ({controller: 'sessions', action: 'delete', method: 'post'}) do %>
   <input type=submit value='logout', class='btn logout '>
 <% end %>
-<%= button_to "My Posts", "user", method: :get, class: 'btn ' %>
+<%= button_to "My Posts", "/user", method: :get, class: 'btn ' %>
 <% else %>
 <%= button_to "Login", login_path, method: :get, class: 'btn login ' %>
 <% end %>
