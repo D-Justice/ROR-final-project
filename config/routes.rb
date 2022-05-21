@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :home, only: [:index]
   resources :posts, only: [:index, :new, :create, :show]
   resources :comments, only: [:new, :create]
-
+  post '/comments/:id', to: "comments#delete"
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   post '/logout', to: "sessions#delete"

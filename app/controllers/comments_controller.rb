@@ -5,7 +5,11 @@ class CommentsController < ApplicationController
         @comment.save
         redirect_to post_path(@comment.post_id)
     end
-
+    def delete
+        Comment.delete(params[:id])
+        redirect_to post_path(params[:post_id])
+        
+    end
     def index
     end
 end

@@ -1,18 +1,31 @@
-<%= render TaskComponent.new(nav: isLoggedIn) %>
-<div class='center-content'>
-<h1><%= @showPost.title %></h1>
-<p><%= @showPost.content %></p>
-<p>Page <%= params[:id]%></p>
-<h3>Comments:</h3>
-<% @showPost.comments.each do |comment| %>
-<h5><%= comment.user.userName%></h5>
-<p><%= comment.comment %></p>
-<% end %>
-<%= form_tag comments_path do |comment|%>
-  <%= text_field_tag :'comment[comment]' %><br>
-  <%= hidden_field_tag :'comment[test]', @pageId%>
-  <%= submit_tag "Post Comment", class: 'btn submit-btn' %>
+<%= stylesheet_link_tag "general" %>
 
-<% end %>
-<%= button_to "Back", "/posts", method: :get, class: 'btn' %>
+<%= render TaskComponent.new(nav: isLoggedIn) %>
+    <%= button_to "Back", "/posts", method: :get, class: 'btn' %>
+
+<div class='center-content'>
+    <h1><%= @showPost.title %></h1>
+    <p><%= @showPost.content %></p>
+    <div class="comments-section">
+    <h3>Comments:</h3>
+            <% @showPost.comments.each do |comment| %>
+        <div class="comment">
+                <h3><%= comment.user.userName%></h3>
+                <p><%= comment.comment %></p>
+                <% if (comment.user_id == session[:user_id]) %>
+                    <%= button_to 'Delete', {'action': 'delete', 
+                    controller: "comments",
+                    id: comment.id, 
+                    post_id: comment.post_id}, :onclick => "return confirm('Warning: This will delete this post permanently. Are you sure?')", class: 'btn delete-comment-btn' %>
+            <% end %>
+        </div>
+    <% end %>
+    <br>
+     <%= form_tag comments_path do |comment|%>
+    <%= text_field_tag :'comment[comment]' %><br>
+    <%= hidden_field_tag :'comment[test]', @pageId%>
+    <%= submit_tag "Post Comment", class: 'btn submit-btn' %>
+    </div>
+
+    <% end %>
 </div>

@@ -24,7 +24,6 @@ html {
 
     display: inline-block;
     position: relative;
-    float: right;
     margin-right: 0.5%;
     text-decoration: none;
     text-align: center;
@@ -57,6 +56,10 @@ html {
     -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
 }
+.nav-btn {
+    float: right;
+
+}
 .back-btn {
     background-color: rgb(107, 107, 107);
     float: none;
@@ -66,6 +69,13 @@ html {
 }
 .delete-btn {
     background-color: red;
+    margin-bottom: 5%;
+}
+.delete-comment-btn {
+    background-color: red;
+    margin-bottom: 5%;
+    position: relative;
+    left: 30%;
 }
 .submit-btn {
     background-color: green;
@@ -108,6 +118,21 @@ html {
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
     }
+}
+.comments-section {
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgb(167, 167, 167);
+}
+.comments-section h3 {
+    text-align: left;
+    margin-left: 10%;
+}
+.comment {
+    background: rgb(131, 131, 131);
+    width: 80%;
+    margin-bottom: 30px;
+    margin: 0 auto;
 }
 @keyframes gradient-smooth {
     0%{background-position:77% 0%}

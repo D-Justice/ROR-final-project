@@ -3,7 +3,12 @@
 
 <div class='center-content'>
 <h1>Signup Page</h1>
-
+ <% if $newUser %>
+  <ul><%= $newUser.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  <% end %>
 <%= form_tag signup_index_path do %>
   <label>User name:</label><br>
   <%= text_field_tag :'user[userName]' %><br>

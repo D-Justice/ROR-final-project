@@ -1,17 +1,25 @@
 class SignupController < ApplicationController
+    
     def index
         redirect_to "/signup/new"
     end
-
+    def new
+        $newUser
+    end
+    
     def create
-        @newUser = User.new
-        @newUser.userName = params[:user][:userName]
-        @newUser.firstName = params[:user][:firstName]
-        @newUser.lastName = params[:user][:lastName]
-        @newUser.email = params[:user][:email]
-        @newUser.password = params[:user][:password]
-        @newUser.save
-        flash[:notice] = "User created."
-        redirect_to home_index_path
+        $newUser = User.create(
+            userName: params[:user][:userName], 
+            firstName: params[:user][:firstName], 
+            lastName: params[:user][:lastName], 
+            email: params[:user][:email], 
+            password: params[:user][:password])
+        
+        if $newUser.valid?
+            $newUser.save
+            redirect_to home_index_path
+        else
+
+        end
     end
 end
