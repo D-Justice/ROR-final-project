@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
-    belongs_to :user, optional: true
-    has_many :comments, foreign_key: :comment_id
+    has_many :users, through: :comments
+    has_many :users
+    has_many :comments
 end

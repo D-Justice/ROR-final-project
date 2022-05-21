@@ -3,9 +3,12 @@
 <h1><%= @showPost.title %></h1>
 <p><%= @showPost.content %></p>
 <p>Page <%= params[:id]%></p>
+<h3>Comments:</h3>
+<% @showPost.comments.each do |comment| %>
+<h5><%= comment.user.userName%></h5>
+<p><%= comment.comment %></p>
+<% end %>
 <%= form_tag comments_path do |comment|%>
-  <label>Comment:</label><br>
-  <p><%= @pageId %></p>
   <%= text_field_tag :'comment[comment]' %><br>
   <%= hidden_field_tag :'comment[test]', @pageId%>
   <%= submit_tag "Post Comment", class: 'btn submit-btn' %>
