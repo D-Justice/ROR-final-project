@@ -16,7 +16,12 @@ class PostsController < ApplicationController
         end
     end
     def show
-        @showPost = Post.find(params[:id])
-        @pageId = params[:id]
+        if params[:user_id]
+            @isUserPost = true
+        end
+            @showPost = Post.find(params[:id])
+            @author = User.find_by(id: @showPost.user_id)
+            @pageId = params[:id]
+
     end
 end

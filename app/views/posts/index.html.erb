@@ -1,14 +1,32 @@
 <%= stylesheet_link_tag "general" %>
 <%= render TaskComponent.new(nav: isLoggedIn) %>
+<% if @userPosts %>
+    <%= button_to "Back", posts_path(), method: :get, class: 'btn' %>
+<% else %>
+    <%= button_to "Back", home_index_path(), method: :get, class: 'btn' %>
+<% end %>
 
 <div class='center-content'>
 <%begin %>
+<% if @posts %>
 <%  @posts.each do |post|  %>
 <div class='post-box'>
 <h3><%= post.title %></h3>
+<small><%=  %></small>
 <p><%= post.content %></p>
 <%= button_to "See Full Post", post_path(post.id), method: :get, class: 'btn' %>
+<% end %>
 </div>
+<% else %>
+<%  @userPosts.each do |post|  %>
+<div class='post-box'>
+<h3><%= post.title %></h3>
+<p><%= post.content %></p>
+<%= button_to "See Full User Post", user_post_path(post.user_id, post.id), method: :get, class: 'btn' %>
+<% end %>
+
+</div>
+
 
 <% end %>
 <% rescue => e%>
