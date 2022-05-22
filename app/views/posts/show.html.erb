@@ -1,10 +1,16 @@
 <%= stylesheet_link_tag "general" %>
 
 <%= render TaskComponent.new(nav: isLoggedIn) %>
+<% if @isUserPost == true %>
+    <%= button_to "Back", user_posts_path(@showPost.user_id), method: :get, class: 'btn' %>
+
+<% else %>
     <%= button_to "Back", "/posts", method: :get, class: 'btn' %>
+<% end %>
 
 <div class='center-content'>
     <h1><%= @showPost.title %></h1>
+    <small><%= link_to @author.firstName + ' ' + @author.lastName, user_posts_path(@author.id) %></small>
     <p><%= @showPost.content %></p>
     <div class="comments-section">
     <h3>Comments:</h3>
@@ -16,15 +22,21 @@
                     <%= button_to 'Delete', {'action': 'delete', 
                     controller: "comments",
                     id: comment.id, 
+                    url: request.original_url,
                     post_id: comment.post_id}, :onclick => "return confirm('Warning: This will delete this post permanently. Are you sure?')", class: 'btn delete-comment-btn' %>
             <% end %>
         </div>
     <% end %>
     <br>
+
+                <% if (session[:user_id]) %>
      <%= form_tag comments_path do |comment|%>
     <%= text_field_tag :'comment[comment]' %><br>
-    <%= hidden_field_tag :'comment[test]', @pageId%>
+    <%= hidden_field_tag :'comment[pageId]', @pageId%>
+    <%= hidden_field_tag :'comment[url]', request.original_url%>
+    
     <%= submit_tag "Post Comment", class: 'btn submit-btn' %>
+    <% end %>
     </div>
 
     <% end %>

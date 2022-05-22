@@ -10,10 +10,19 @@ class PostsController < ApplicationController
     end
 
     def index
-        @posts = Post.all
+        if params[:user_id]
+            @userPosts = Post.where(user_id: params[:user_id])
+        else
+            @posts = Post.all
+        end
     end
     def show
-        @showPost = Post.find(params[:id])
-        @pageId = params[:id]
+        if params[:user_id]
+            @isUserPost = true
+        end
+            @showPost = Post.find(params[:id])
+            @author = User.find_by(id: @showPost.user_id)
+            @pageId = params[:id]
+        
     end
 end
