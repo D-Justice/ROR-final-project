@@ -11,5 +11,21 @@ class User < ActiveRecord::Base
     validates :password, :presence => true,
                        :length => {:within => 4..40},
                        :on => :create
-  
+devise :database_authenticatable, :registerable,
+:recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
+
+    def self.from_omniauth(access_token)
+        user = User.where(email: access_token.info.email).first
+        unless user
+        user = User.create(
+            email: access_token.info.email,
+            password: Devise.friendly_token[0,20]
+        )
+    end
+    user.userName = access_token.info.name
+    user.image = access_token.info.image
+    user.uid = access_token.uid
+    user.provider = access_token.provider
+    user.save
+end
 end

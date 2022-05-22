@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
     def create
         @post = Post.new
         @post.title = params[:post][:title]
@@ -13,7 +12,7 @@ class PostsController < ApplicationController
         if params[:user_id]
             @userPosts = Post.where(user_id: params[:user_id])
         else
-            @posts = Post.all
+            @posts = Post.all.order_by_latest
         end
     end
     def show

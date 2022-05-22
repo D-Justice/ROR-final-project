@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
     def create
+        user_info = request.env['omniauth.auth']
         user = User.find_by(email: params[:session][:email].downcase, password: params[:session][:password])
         if user 
           session[:user_id] = user.id
