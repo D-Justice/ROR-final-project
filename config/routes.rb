@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   post '/logout', to: "sessions#delete"
+  resources :signup, only: [:index, :new, :create]
+  resources :user, only: [:index, :show]
   post '/user/:id', to: "user#delete"
   
 end

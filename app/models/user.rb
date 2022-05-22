@@ -8,24 +8,9 @@ class User < ActiveRecord::Base
     validates :firstName, presence: true
     validates :lastName, presence: true
     validates :email, presence: true, uniqueness: {message: "already in use"}, format: { with: URI::MailTo::EMAIL_REGEXP } 
+    validates :password_confirmation, presence: {message: "must be more than 6 characters"}
     validates :password, :presence => true,
-                       :length => {:within => 4..40},
+                       :confirmation => true,
+                       :length => {:within => 6..40},
                        :on => :create
-devise :database_authenticatable, :registerable,
-:recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
-
-    def self.from_omniauth(access_token)
-        user = User.where(email: access_token.info.email).first
-        unless user
-        user = User.create(
-            email: access_token.info.email,
-            password: Devise.friendly_token[0,20]
-        )
-    end
-    user.userName = access_token.info.name
-    user.image = access_token.info.image
-    user.uid = access_token.uid
-    user.provider = access_token.provider
-    user.save
-end
 end
