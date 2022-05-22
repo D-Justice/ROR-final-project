@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
     validates :firstName, presence: true
     validates :lastName, presence: true
     validates :email, presence: true, uniqueness: {message: "already in use"}, format: { with: URI::MailTo::EMAIL_REGEXP } 
-    validates :password_confirmation, presence: {message: "must be more than 6 characters"}
     validates :password, :presence => true,
                        :confirmation => true,
                        :length => {:within => 6..40},

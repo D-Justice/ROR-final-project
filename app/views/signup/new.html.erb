@@ -28,7 +28,7 @@
   <%= text_field_tag :'user[email]', $newUser ? $newUser.email : ''  %><br>
   
   <label>Password:</label><br>
-  <%= password_field :'user[password]', value: ''%><br>
+  <%= text_field_tag :'user[password]'%><br>
   
 
   <%= submit_tag "Create Account", class: 'btn' %>

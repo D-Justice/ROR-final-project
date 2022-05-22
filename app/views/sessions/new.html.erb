@@ -23,8 +23,7 @@
  <% end %>
 <%= form_tag ({controller: 'sessions', action: 'delete', method: 'post'}) do %>
 <% end %>
-<%= user_github_omniauth_authorize_path %>
-<%= button_to "Sign in with Github", user_github_omniauth_authorize_path, method: :post %>
+
 
 <%= button_to "Home", home_index_path, method: :get, class: 'btn' %>
 </div>
