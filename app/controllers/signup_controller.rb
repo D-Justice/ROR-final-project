@@ -1,6 +1,7 @@
 class SignupController < ApplicationController
     
     def index
+        $newUser = nil
         redirect_to "/signup/new"
     end
     def new
@@ -19,7 +20,7 @@ class SignupController < ApplicationController
             $newUser.save
             redirect_to home_index_path
         else
-
+            redirect_to '/signup/new'
         end
     end
 end

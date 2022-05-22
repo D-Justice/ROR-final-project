@@ -3,27 +3,32 @@
 
 <div class='center-content'>
 <h1>Signup Page</h1>
- <% if $newUser %>
-  <ul><%= $newUser.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+
+<% if $newUser %>
+ <% if $newUser.errors.any? %>
+  <ul style='list-style: none'><% $newUser.errors.full_messages.each do |msg| %>
+      <li style='color: red'><%= msg %></li>
     <% end %>
     </ul>
   <% end %>
+  
+  <p><% $newUser.password %></p>
+  <% end %>
 <%= form_tag signup_index_path do %>
   <label>User name:</label><br>
-  <%= text_field_tag :'user[userName]' %><br>
+  <%= text_field_tag :'user[userName]', $newUser ? $newUser.userName : ''  %><br>
   
   <label>First name:</label><br>
-  <%= text_field_tag :'user[firstName]' %><br>
+  <%= text_field_tag :'user[firstName]', $newUser ? $newUser.firstName : ''  %><br>
 
   <label>Last name:</label><br>
-  <%= text_field_tag :'user[lastName]' %><br>
+  <%= text_field_tag :'user[lastName]', $newUser ? $newUser.lastName : ''  %><br>
 
   <label>Email:</label><br>
-  <%= text_field_tag :'user[email]' %><br>
+  <%= text_field_tag :'user[email]', $newUser ? $newUser.email : ''  %><br>
   
   <label>Password:</label><br>
-  <%= text_field_tag :'user[password]' %><br>
+  <%= password_field :'user[password]', value: ''%><br>
   
 
   <%= submit_tag "Create Account", class: 'btn' %>
