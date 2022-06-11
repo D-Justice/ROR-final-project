@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :user, only: [:index, :show] do
     resources :posts, only: [:index, :show]
   end
-  
+  get '/auth/github/callback' => 'omniauth#create'
   resources :signup, only: [:index, :new, :create]
   post '/comments/:id', to: "comments#delete"
   get '/login', to: "sessions#new"
