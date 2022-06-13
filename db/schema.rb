@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_13_025113) do
+ActiveRecord::Schema.define(version: 2022_06_13_070330) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "category"
+  end
+
+  create_table "category_post_joins", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "category_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "comment"

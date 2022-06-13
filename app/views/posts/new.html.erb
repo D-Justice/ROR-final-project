@@ -5,10 +5,11 @@
 <%= form_tag posts_path do |post|%>
   <label>Post title:</label><br>
   <%= text_field_tag :'post[title]' %><br>
-
+  <label>Category:</label><br>
+  <%= text_field_tag :'post[category]' %><br>
   <label>Post description:</label><br>
   <%= text_area_tag :'post[content]' %><br>
-
+  <%= hidden_field_tag :'post[user_id]', session[:user_id] %>
   <%= submit_tag "Submit Post", class: 'btn submit-btn' %>
 
 <% end %>

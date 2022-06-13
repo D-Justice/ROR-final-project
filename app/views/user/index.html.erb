@@ -12,7 +12,9 @@
         <%= button_to "Create", "posts/new", method: :get, class: 'btn user-btn create-btn' %>
         <%= button_to "Back", "/home", method: :get, class: 'btn user-btn back-btn' %>
         <% begin %>
+        
         <%  @user.posts.each  do |post|  %>
+        <br>
             <div style="display: inline-block">
                 <h1 style="display: inline-block"><%= post.title %></h1>
                 <p style="display: inline-block"><%= post.content %></p> 
@@ -20,5 +22,6 @@
             </div>
         <% end %>
         <%rescue%>
+
         <%end%>
 </div>

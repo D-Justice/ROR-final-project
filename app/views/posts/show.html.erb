@@ -8,7 +8,7 @@
 
 <div class='center-content'>
     <h1><%= @showPost.title %></h1>
-    <small><%= link_to @author.firstName + ' ' + @author.lastName, user_posts_path(@author.id) %></small>
+    <small><%= link_to @author.userName, user_posts_path(@author.id) %></small>
     <p><%= @showPost.content %></p>
     <div class="comments-section">
     <h3>Comments:</h3>

@@ -14,7 +14,7 @@
   
   <p><% $newUser.password %></p>
   <% end %>
-<%= form_tag :user, url: signup_index_path do |f|%>
+<%= form_for :user, url: signup_index_path do |f|%>
   <label>User name:</label><br>
   <%= f.text_field :userName %><br>
   

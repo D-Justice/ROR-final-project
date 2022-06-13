@@ -1,9 +1,10 @@
 require 'bcrypt'
 class User < ActiveRecord::Base
     include BCrypt
-    has_many :posts, through: :comments
-    has_many :comments
     has_secure_password
+    has_many :comments
+    has_many :posts
+    has_many :posts, through: :comments
     validates :userName, presence: true, uniqueness: {message: "already in use"}
     validates :firstName, presence: true
     validates :lastName, presence: true

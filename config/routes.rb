@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :user, only: [:index, :show] do
     resources :posts, only: [:index, :show]
   end
+  resources :categories, only: [:show]
   get '/auth/github/callback' => 'omniauth#create'
   resources :signup, only: [:index, :create]
   post '/signup/new', to: "signup#create"
