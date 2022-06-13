@@ -9,12 +9,7 @@ class SignupController < ApplicationController
     end
     
     def create
-        $newUser = User.create(
-            userName: params[:user][:userName], 
-            firstName: params[:user][:firstName], 
-            lastName: params[:user][:lastName], 
-            email: params[:user][:email], 
-            password: params[:user][:password])
+        $newUser = User.create(user_params)
         
         if $newUser.valid?
             $newUser.save
@@ -22,5 +17,10 @@ class SignupController < ApplicationController
         else
             redirect_to '/signup/new'
         end
+    end
+    private
+
+    def user_params
+        params.require(:user).permit(:userName, :firstName, :lastName, :email, :password)
     end
 end

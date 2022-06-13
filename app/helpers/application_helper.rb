@@ -8,6 +8,5 @@ module ApplicationHelper
           rescue
             session.delete(:user_id)
           end
-          
     end
 end

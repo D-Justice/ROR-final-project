@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
     def create
-        @post = Post.new
-        @post.title = params[:post][:title]
-        @post.content = params[:post][:content]
+        @post = Post.create(post_params)
         @post.user_id = session[:user_id]
         @post.save
         redirect_to user_path(@post.id)
@@ -22,6 +20,11 @@ class PostsController < ApplicationController
             @showPost = Post.find(params[:id])
             @author = User.find_by(id: @showPost.user_id)
             @pageId = params[:id]
+    end
 
+    private
+
+    def post_params
+        params.require(:post).permit(:title, :content)
     end
 end
