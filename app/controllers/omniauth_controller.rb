@@ -18,11 +18,6 @@ class OmniauthController < ApplicationController
         )
         @user.save
       end
-      
-      
-      puts("new user: #{auth}")
-      
-      puts("new user: #{@user.userName}")
       session[:user_id] = @user.id
       redirect_to home_index_path
     end

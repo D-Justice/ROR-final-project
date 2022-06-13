@@ -30,7 +30,7 @@
                 <% if (session[:user_id]) %>
      <%= form_tag comments_path do |comment|%>
     <%= text_field_tag :'comment[comment]' %><br>
-    <%= hidden_field_tag :'comment[pageId]', @pageId%>
+    <%= hidden_field_tag :'comment[post_id]', @pageId%>
     <%= hidden_field_tag :'comment[url]', request.original_url%>
     
     <%= submit_tag "Post Comment", class: 'btn submit-btn' %>
