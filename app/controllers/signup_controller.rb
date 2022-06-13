@@ -1,5 +1,5 @@
 class SignupController < ApplicationController
-    
+    attr_accessor :password, :password_confirmation
     def index
         $newUser = nil
         redirect_to "/signup/new"
@@ -7,7 +7,7 @@ class SignupController < ApplicationController
     def new
         $newUser
     end
-    
+ 
     def create
         $newUser = User.create(user_params)
         
@@ -21,6 +21,6 @@ class SignupController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:userName, :firstName, :lastName, :email, :password, :confirmation)
+        params.require(:user).permit(:userName, :firstName, :lastName, :email, :password, :password_confirmation)
     end
 end

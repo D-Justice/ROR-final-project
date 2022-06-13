@@ -14,25 +14,25 @@
   
   <p><% $newUser.password %></p>
   <% end %>
-<%= form_tag signup_index_path do %>
+<%= form_tag :user, url: signup_index_path do |f|%>
   <label>User name:</label><br>
-  <%= text_field_tag :'user[userName]', $newUser ? $newUser.userName : ''  %><br>
+  <%= f.text_field :userName %><br>
   
   <label>First name:</label><br>
-  <%= text_field_tag :'user[firstName]', $newUser ? $newUser.firstName : ''  %><br>
+  <%= f.text_field :firstName %><br>
 
   <label>Last name:</label><br>
-  <%= text_field_tag :'user[lastName]', $newUser ? $newUser.lastName : ''  %><br>
+  <%= f.text_field :lastName %><br>
 
   <label>Email:</label><br>
-  <%= text_field_tag :'user[email]', $newUser ? $newUser.email : ''  %><br>
+  <%= f.text_field :email %><br>
   
   <label>Password:</label><br>
-  <%= password_field :'user[password]', ''%><br>
+  <%= f.password_field :password %><br>
   <label>Confirm Password:</label><br>
-  <%= password_field :'user[confirmation]', ''%><br>
+  <%= f.password_field :password_confirmation %><br>
   
 
-  <%= submit_tag "Create Account", class: 'btn' %>
+  <%= f.submit "Create Account", class: 'btn' %>
 <% end %>
 </div>

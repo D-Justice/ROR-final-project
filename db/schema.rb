@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_22_082700) do
+ActiveRecord::Schema.define(version: 2022_06_13_025113) do
 
   create_table "comments", force: :cascade do |t|
     t.string "comment"
@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(version: 2022_05_22_082700) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password"
-    t.string "encrypted_password"
     t.string "image"
     t.string "uid"
     t.string "provider"
+    t.string "password_digest"
   end
 
 end
