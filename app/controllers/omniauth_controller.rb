@@ -1,6 +1,5 @@
 class OmniauthController < ApplicationController
     def create
-      puts(auth)
       @user = User.find_by(email: auth['info']['email'])
       if @user.nil?
         name = auth['info']['name']
@@ -14,9 +13,12 @@ class OmniauthController < ApplicationController
           lastName: name,
           email: auth['info']['email'],
           image: auth['info']['image'],
-          password: auth['credentials']['token']
+          password: auth['credentials']['token'],
+          password_confirmation: auth['credentials']['token']
         )
-        @user.save
+        puts("userName: #{@user.userName} firstName: #{@user.firstName} lastName: #{@user.lastName} email: #{@user.email} image: #{@user.image} password: #{@user.password}")
+        @user.save!
+        puts("User saved")
       end
       session[:user_id] = @user.id
       redirect_to home_index_path
